@@ -1,11 +1,16 @@
 :root {
-    --base-font-size        : 16px;
     --site-width            : 100rem;
+
     --height-header         : 7.1875rem;
+    --width-site-logo       : 23.0625rem;
+    --height-site-logo      : 4.8125rem;
+
     --primary-color         : #004B9C;
     --secondary-color       : #383838;
     --bg-body               : #EBF4FE;
+    
     --primary-font          : 'Rubik', sans-serif;
+    --base-font-size        : 16px;
 }
 
 * {
@@ -59,6 +64,14 @@ figure { margin: 0; }
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    padding: 1rem;
+}
+
+.landing-header__logo img {
+    display: block;
+    max-width: var(--width-site-logo);
+    width: 80%;
+    margin: 0 auto;
 }
 
 .landing-main { 
@@ -66,33 +79,12 @@ figure { margin: 0; }
     background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-body) 100%); 
 }
 
-.landing-main:before { 
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(images/bg-hero.png);
-    background-repeat: no-repeat;
-    background-position: left top;
-}
-
 .landing-hero {
+    display: flex;
+    align-items: center;
     position: relative;
     z-index: 2;
-}
-
-.landing-hero:after {
-    content: "";
-    position: absolute;
-    bottom: -0.625rem;
-    right: 0;
-    width: 30%;
-    height: 1.25rem;
-    border-radius: 1.875rem 0 0 1.875rem;
-    background: var(--primary-color);
+    padding: 0 1rem 2rem;
 }
 
 .landing-hero__image {
@@ -108,9 +100,14 @@ figure { margin: 0; }
     width: 100%;
 }
 
+.landing-hero__summary { 
+    font-size: .7rem; 
+    text-align: center;
+}
+
 .landing-hero__summary h2 {
     margin: 0 0 1rem;
-    font-size: 4.625rem;
+    font-size: 4.625em;
     font-weight: 900;
     text-transform: uppercase;
     line-height: 1.125;
@@ -123,14 +120,14 @@ figure { margin: 0; }
 
 .landing-hero__summary p {
     margin: 0 0 1.5rem;
-    font-size: 1.875rem;
+    font-size: 1.875em;
     font-weight: 300;
 }
 
 .landing-hero__summary a {
     display: inline-block;
     padding: .875rem 3rem;
-    font-size: 1.25rem;
+    font-size: 1.25em;
     font-weight: 300;
     text-transform: uppercase;
     border-radius: 1.875rem;
@@ -149,7 +146,7 @@ figure { margin: 0; }
 .landing-features {
     position: relative;
     z-index: 3;
-    padding: 2rem 0;
+    padding: 2rem 1rem;
 }
 
 .landing-features .items-list {
@@ -166,7 +163,9 @@ figure { margin: 0; }
 }
 
 .landing-features h4 {
-    font-size: 1.5rem;
+    display: block;
+    padding: 0 1rem;
+    font-size: 1.25rem;
     font-weight: 300;
     text-align: center;
     line-height: 157.5%;
@@ -178,7 +177,7 @@ figure { margin: 0; }
 }
 
 .landing-footer {
-    padding: 6rem 0 4rem;
+    padding: 6rem 1rem 4rem;
     background: linear-gradient(180deg, #EBF4FE 0%, #FFFFFF 50.52%, #FFFFFF 100%);
 }
 
@@ -193,10 +192,12 @@ figure { margin: 0; }
     margin: 1rem;
 }
 
+.landing-footer__logo .items-list img {
+    display: block;
+    max-width: 100%;
+}
 
 @media screen and (min-width: 1024px) {
-    .landing-hero { height: var(--height-header); }
-
     .landing-header__logo,
     .landing-hero__image,
     .landing-features .items-list,
@@ -205,11 +206,54 @@ figure { margin: 0; }
         justify-content: space-between; 
     }
 
+    .landing-header__logo { padding-top: 0; }
+
+    .landing-header__logo img {
+        width: 100%;
+        margin: 0;
+    }
+
     .landing-container { max-width: var(--site-width); }
 
     .landing-hero { height: calc(100vh - var(--height-header)); }
+
+    .landing-main:before { 
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(images/bg-hero.png);
+        background-repeat: no-repeat;
+        background-position: left top;
+    }    
+
+    .landing-hero:after {
+        content: "";
+        position: absolute;
+        bottom: -0.625rem;
+        right: 0;
+        width: 30%;
+        height: 1.25rem;
+        border-radius: 1.875rem 0 0 1.875rem;
+        background: var(--primary-color);
+    }
+
+    .landing-hero__summary { 
+        font-size: 1rem; 
+        text-align: left;
+    }
     
     .landing-features { padding: 8rem 0 5rem; }
+    
+    .landing-features h4 { font-size: 1.5rem; }
 
     .landing-footer__logo .items-list { justify-content: center; }
+}
+
+@media screen and (min-width: 1350px) {  
+    .landing-header__logo { padding: 0; }
+    .landing-features h4 { padding: 0; }
 }
